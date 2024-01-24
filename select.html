@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <select name="color" id="color">
+            <option value="แดง">แดง</option>
+            <option value="เขียว">เขียว</option>
+            <option value="น้ำเงิน">น้ำเงิน</option>
+        </select>
+        <br><br>
+        <section name="country" id="country" size="4" mltiple onchange="mltipleSelection"()>
+            <option value="th"selected>Thailand</option>
+            <option value="jp"selected>japan</option>
+            <option value="uk"selected>United kingdom</option>
+            <option value="us"selected>USA</option>
+            <option value="ca"selected>canada</option>
+        </section>
+    </form>
+    <script>
+        let color = document.getElementById('color')
+        let white = new Option('white' ,'ขาว') //text, value
+        color.add(white)            //เพื่มเป็นรายการสุดท้าย
+
+        let yellow = document.createElement('option')
+        yellow.value = 'yellow'  //yellow.setAttribute('value','yellow')
+        yellow.text = 'เหลือง'   //yellow.setAttribute('text','เหลือง')
+        color.add(yellow, 3)    // เพื่ม (แทรก) ตั้งในลำดับ 3 (รายการแรกลำดับเป็น 0)
+        //color.options[2] = yellow //ถ้านต้องการแทนที่รายการลำดับที่2
+        color.selectedIndex = 2
+        //atert(color.length)
+        function multipleSelection() {
+            let country = document.getElementById('country')
+            if (country.multiple) {
+                let selectedValues =[]
+                 
+                for (opt of country.Option) {
+                    if (opt.selected) {
+                        selectedValues.push(opt.value)
+
+                    }
+                }
+                /*
+                for (i = 0i < country.length i++) {
+                    if (country.option[i].selected){
+                        selectedValues.push(country.option[i].value)
+                    }
+                }
+            */
+           alert(selectedValues.join(','))
+        }
+    }
+    </script>
+</body>
+</html>
